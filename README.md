@@ -1,2 +1,1 @@
-# writeups
-Writeups of various CTF challenges
+By the power of encryption and the strength of my keystrokes, I beseech the cyber deities to bestow mercy upon my code, guarding me against pitfalls and granting redemption should I err in the realm of CTF and cybersecurity.
