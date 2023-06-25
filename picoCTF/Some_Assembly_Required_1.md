@@ -8,4 +8,4 @@ After analyzing the JS of the page, we can see that there is object called WebAs
 
 Note that this value is taken from the array defined right at the top of the JS script.
 
-So, from base-url/JIFxzHyW8W some kind of assembly is fetched. We can also see this web assembly in the sources tab of inspect element. Right at the end of that file we can see the flag.
+So, from **base-url/JIFxzHyW8W** some kind of assembly is fetched. We can also see this web assembly in the sources tab of inspect element. Right at the end of that file we can see the flag.
