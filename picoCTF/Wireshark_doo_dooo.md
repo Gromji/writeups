@@ -7,7 +7,7 @@ So, if open the file with wireshark and go through tcp streams we can find inter
 > **cvpbPGS{c33xno00_1_f33_h_qrnqorrs}**
 
 After I tried to decipher it with **ROT13** I got the flag.
-```
+```python
 import codecs
 
 def rot13_decode(text):
