@@ -1,3 +1,5 @@
+# Scavenger Hunt
+
 This exercise gives us an url and tells us that there is hidden information hidden around that site.
 
 We can immediately find first and second parts of the flag by simply checking the HTML and CSS of the website. But, when we check the JS, we get the hint "How can I keep Google from indexing my website?". Answer to that is robots.txt. We can use that file to prevent web scavengers and search engines from indexing our website. So, that gives us the part 3 of the flag.
