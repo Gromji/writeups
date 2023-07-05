@@ -13,8 +13,8 @@ e = int(splits[2])
 n = int(splits[5])
 c = int(splits[8])
 
-# c = (flag * e) mod n
-# flag = c * e^-1 mod n
+# c = (flag * e) (mod n)
+# flag = c * e^-1 (mod n)
 
 inverse = pow(e, -1, n)
 print(((c * inverse) % n).to_bytes(256, "big"))
