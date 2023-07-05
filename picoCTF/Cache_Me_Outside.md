@@ -47,7 +47,9 @@ Here we can just run heapedit_patched with gdb. I recommend using pwndbg plugin 
 After inspecting the pseudocode (Which I retrieved with [IDA](https://hex-rays.com/ida-free/)), we can see that there are some heap allocations happening. There are two messages put into the allocated blocks, one is the flag which we are interested in and other is some other string we are not interested in. In the for loop there are 7 blocks allocated which all contain the flag. Then, after the loop one more malloc is called in which the other string is stored. Now we get to the part where we need knowledge about **tcache**. I will refer to block with flag that is being freed as "win block" and the other block thats being freed as "lose block". Two frees that we see change the tcache struct in the following way
 
 > Right before the frees tcache does not contain any entries for blocks of size 0x80
+
 > After first free, win block's pointer is put into tcache struct. **TCACHE_STRUCT --> WIN_BLOCK**
+
 > After second free, lose block's pointer is put into tcache struct. **TCACHE_STRUCT --> LOSE_BLOCK --> WIN_BLOCK**
 
 If we try to malloc 0x80 size block now, we are going to get lose block and other string is going to be printed. But to exploit that Program gives us a powerful tool, we can overwrite one byte. We can specify where we want to overwrite with offset from some mallocd block. Since the tcache struct points to lose block, our goal is to overwrite that pointer to point to some block with our flag in it. We can search for pointers with pwndbg's search, which can take hexadecimal argument if we give -x flag to it (note that we must give arguments in little endian on little endian system). This offset we can calculate with gdb and wont change, since the code is compiled with --no-pie. If we know the offset we can overwrite it with a value, which makes it point to a block with our flag in it. After that, win block will be allocated and printed, giving us the flag.
