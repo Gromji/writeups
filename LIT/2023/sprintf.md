@@ -1,6 +1,6 @@
 ## Sprintf
 
-In this challenge, we are given the following files
+In this challenge, we are given the following three files
 
 > s ld-linux-x86-64.so.2 libc-2.31.so
 
